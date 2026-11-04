@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rookery"
+version = "0.1.0"
+description = "Local audio feature analysis for voice training"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "librosa>=0.10.1",
+    "soundfile>=0.12",
+    "sounddevice>=0.4.6",
+    "pydantic>=2",
+    "pyloudnorm>=0.2.0",
+]
+
+[project.optional-dependencies]
+noise = ["noisereduce>=3.0.3"]
+viz = ["matplotlib>=3.7"]        # windowed GUI vocal features
+whisper = ["faster-whisper>=1.0"]  # phoneme-aware vowel space, later
+dev = ["pytest>=8"]
+
+[project.scripts]
+rookery = "rookery.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["rookery*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

@@ -1,0 +1,7 @@
+*.egg-info/
+
+.rules
+.scratch
+
+PLAN.md
+PROJECT.md
